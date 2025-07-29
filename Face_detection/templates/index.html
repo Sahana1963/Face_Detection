@@ -1,0 +1,22 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Face Detection & Recognition</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="container">
+    <h1>🔍 Face Detection App</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*" required />
+      <button type="submit">Detect Faces</button>
+    </form>
+    {% if result_image %}
+      <h2>Detected Image:</h2>
+      <img src="{{ url_for('static', filename=result_image) }}" class="output-img" />
+    {% endif %}
+  </div>
+</body>
+</html>
